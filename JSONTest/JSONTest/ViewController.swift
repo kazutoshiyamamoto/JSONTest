@@ -8,24 +8,22 @@
 
 import UIKit
 
-struct JSONFeed {
+struct JSONFeed: Codable {
     let list: [weather]
     let main: main
     let name: String
 }
 
-struct weather {
+struct weather: Codable {
     let main: String
     let description: String
 }
 
-struct main {
+struct main: Codable {
     let temp: Int
     let pressure: Int
     let humidity: Int
 }
-
-
 
 class ViewController: UIViewController {
 
@@ -33,6 +31,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+
 
     }
 
