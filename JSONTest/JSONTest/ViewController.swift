@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 struct JSONFeed: Codable {
     let list: [weather]
@@ -26,28 +27,32 @@ struct main: Codable {
 }
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let url = URL(string: "http://api.openweathermap.org/data/2.5/group?id=2128295,2111149,1850147,1856057,1860243,1853909,1862415,1859146,1863967,1856035&units=metric&appid=ecea42c72b75c53caefaa93002224dd6")!
         
-        let decoder = JSONDecoder()
-        
-        do {
-            let data = try Data(contentsOf: url, options: [])
-            let feed = try decoder.decode(JSONFeed.self, from: data)
-            print(feed)
-        } catch {
-            print(error)
-        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func feed() {
+        Alamofire.request("http://api.openweathermap.org/data/2.5/group?id=2128295,2111149,1850147,1856057,1860243,1853909,1862415,1859146,1863967,1856035&units=metric&appid=ecea42c72b75c53caefaa93002224dd6").validate().responseJSON { response in
+            guard let data = response.data else {
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let feed: JSONFeed = try decoder.decode(JSONFeed.self, from: data)
+                print(feed)
+            } catch {
+                print(error)
+            }
+        }
+    }
 }
 
