@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3F23F80B1520A2354E5CDDD /* Pods_JSONTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6CD5D46EB68C80CC3453289 /* Pods_JSONTest.framework */; };
 		FD51957320EE0AF100263173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51957220EE0AF100263173 /* AppDelegate.swift */; };
 		FD51957520EE0AF100263173 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51957420EE0AF100263173 /* ViewController.swift */; };
 		FD51957820EE0AF100263173 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD51957620EE0AF100263173 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ADD80ABBE4B56859F5FA9E2A /* Pods-JSONTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-JSONTest/Pods-JSONTest.release.xcconfig"; sourceTree = "<group>"; };
+		C6CD5D46EB68C80CC3453289 /* Pods_JSONTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSONTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB8A32C2217147D453081635 /* Pods-JSONTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JSONTest/Pods-JSONTest.debug.xcconfig"; sourceTree = "<group>"; };
 		FD51956F20EE0AF100263173 /* JSONTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD51957220EE0AF100263173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD51957420EE0AF100263173 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3F23F80B1520A2354E5CDDD /* Pods_JSONTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		079B78E48A71C467D5D51FEF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6CD5D46EB68C80CC3453289 /* Pods_JSONTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8FABA931EBC2EF1576A7C908 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FB8A32C2217147D453081635 /* Pods-JSONTest.debug.xcconfig */,
+				ADD80ABBE4B56859F5FA9E2A /* Pods-JSONTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FD51956620EE0AF100263173 = {
 			isa = PBXGroup;
 			children = (
 				FD51957120EE0AF100263173 /* JSONTest */,
 				FD51957020EE0AF100263173 /* Products */,
+				8FABA931EBC2EF1576A7C908 /* Pods */,
+				079B78E48A71C467D5D51FEF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD51958120EE0AF400263173 /* Build configuration list for PBXNativeTarget "JSONTest" */;
 			buildPhases = (
+				D787A7624523F989426760E0 /* [CP] Check Pods Manifest.lock */,
 				FD51956B20EE0AF100263173 /* Sources */,
 				FD51956C20EE0AF100263173 /* Frameworks */,
 				FD51956D20EE0AF100263173 /* Resources */,
+				E4A58CC8681DB1BECCE2CEA4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D787A7624523F989426760E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JSONTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4A58CC8681DB1BECCE2CEA4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JSONTest/Pods-JSONTest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JSONTest/Pods-JSONTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FD51956B20EE0AF100263173 /* Sources */ = {
@@ -278,15 +343,13 @@
 		};
 		FD51958220EE0AF400263173 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB8A32C2217147D453081635 /* Pods-JSONTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8DJ3WL36QU;
 				INFOPLIST_FILE = JSONTest/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-beginners2.JSONTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -296,15 +359,13 @@
 		};
 		FD51958320EE0AF400263173 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADD80ABBE4B56859F5FA9E2A /* Pods-JSONTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8DJ3WL36QU;
 				INFOPLIST_FILE = JSONTest/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-beginners2.JSONTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
