@@ -10,8 +10,12 @@ import UIKit
 import Alamofire
 
 struct JSONFeed: Codable {
-    let list: [weather]
-    let main: main
+    let list: [test]?
+}
+
+struct test: Codable {
+    let weather: [weather]
+//    let main: main
     let name: String
 }
 
@@ -20,11 +24,11 @@ struct weather: Codable {
     let description: String
 }
 
-struct main: Codable {
-    let temp: Int
-    let pressure: Int
-    let humidity: Int
-}
+//struct main: Codable {
+//    let temp: Int
+//    let pressure: Int
+//    let humidity: Int
+//}
 
 class ViewController: UIViewController {
     
